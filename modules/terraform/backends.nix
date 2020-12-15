@@ -38,6 +38,45 @@ let
           region of the bucket
         '';
       };
+      endpoint = mkOption {
+        default = null;
+        type = with types; nullOr str;
+        description = ''
+          s3 provider (e.g.: s3.wasabisys.com)
+        '';
+      };
+      skip_credentials_validation = mkOption {
+        default = null;
+        type = with types; nullOr bool;
+        description = ''
+          skip credentials validation via the STS API
+          needed for providers other than AWS
+        '';
+      };
+      skip_region_validation = mkOption {
+        default = null;
+        type = with types; nullOr bool;
+        description = ''
+          skip region validatio
+          needed for providers other than AWS
+        '';
+      };
+      skip_metadata_api_check = mkOption {
+        default = null;
+        type = with types; nullOr bool;
+        description = ''
+          skip EC2 metadata validation
+          needed for providers other than AWS
+        '';
+      };
+      skip_requesting_account_id = mkOption {
+        default = null;
+        type = with types; nullOr bool;
+        description = ''
+          skip account ID validation
+          needed for providers other than AWS
+        '';
+      };
     };
   };
 
